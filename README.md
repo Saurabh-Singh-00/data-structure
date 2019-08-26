@@ -29,6 +29,5 @@ The concept of Data Structures can be implemented using any Programming language
 
 1. Binary Tree
 
-``` 
-Please give a star to the repo if it helped you in any manner. [Visit the data-structure for python repo](https://github.com/Saurabh-Singh-00/data-structure)
-```
+
+##### Please give a star to the repo if it helped you in any manner. [Visit the data-structure for python repo](https://github.com/Saurabh-Singh-00/data-structure)
