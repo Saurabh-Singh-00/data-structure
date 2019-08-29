@@ -15,7 +15,7 @@ class SinglyLinkedList:
             super(self.__class__, self).__init__(data)
             self.next = None
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         self._head = None
         self._tail = None
         self._length = 0
@@ -44,7 +44,7 @@ class SinglyLinkedList:
 
     def pop(self):
         data = None
-        if self.is_empty is None:
+        if self.is_empty:
             raise Exception("Empty List")
         elif len(self) == 1:
             data = self._head
@@ -83,6 +83,27 @@ class SinglyLinkedList:
             self._head = temp
             self._length += 1
 
+    def remove(self, element):
+        if self.is_empty:
+            raise ValueError(
+                "Element %s does not exists in the list" % str(element))
+        else:
+            temp_index, previous, current = 0, self._head, self._head
+            while temp_index < len(self):
+                if current.data == element:
+                    previous.next = current.next
+                    break
+                previous = current
+                current = current.next
+                temp_index += 1
+            if temp_index == 0:
+                self.shift()
+            elif temp_index == len(self) - 1:
+                self.pop()
+            elif temp_index == len(self):
+                raise ValueError(
+                    "Element %s does not exists in the list" % element)
+
     def __len__(self):
         return self._length
 
@@ -92,30 +113,54 @@ class SinglyLinkedList:
             yield temp
             temp = temp.next
 
-    def __getitem__(self, index):
-        if index > self._length - 1:
+    def __bounded_index(self, index):
+        if index < 0:
+            index = self._length + index
+        if index > self._length - 1 or index < 0:
             raise IndexError("List index out of range")
-        else:
-            _index, temp = 0, self._head
-            while _index != index:
-                temp = temp.next
-                _index += 1
-            return temp
+        return index
+
+    def __getitem__(self, index):
+        index = self.__bounded_index(index)
+        temp_index, temp = 0, self._head
+        while temp_index != index:
+            temp = temp.next
+            temp_index += 1
+        return temp
+
+    def __setitem__(self, index, element):
+        if self.is_empty:
+            raise IndexError("List index out of range")
+        index = self.__bounded_index(index)
+        temp_index, current = 0, self._head
+        while temp_index != index:
+            current = current.next
+            temp_index += 1
+        current.set_data(element)
 
     def __str__(self):
         return "[" + ", ".join([str(_) for _ in self]) + "]"
 
 
+# Allowed Operations
 if __name__ == "__main__":
     l = SinglyLinkedList()
     for i in range(1, 11):
         l.append(i*10)
-    l.shift(shift_by=9)
+    l.shift(shift_by=4)
     l.shift()
+    l[2] = 10
+    l[-1] = (10, 20)
+    l.remove(70)
     print(l)
     print(l.head, l.tail)
     l.unshift(10)
     print(l[0])
     l.unshift(20)
     l.pop()
+    l.remove(20)
+    l.remove(10)
+    l.remove(60)
+    l.remove(90)
+    l.remove(10)
     print(l)
