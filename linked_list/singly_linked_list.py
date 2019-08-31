@@ -30,7 +30,7 @@ class SinglyLinkedList:
 
     @property
     def is_empty(self):
-        return self.head is None
+        return self.head is None and self._length == 0
 
     def append(self, data):
         node = self.__Node(data)
@@ -49,9 +49,8 @@ class SinglyLinkedList:
         elif len(self) == 1:
             data = self._head
             self._head = None
-            self._tail = None
         else:
-            current, previous = self._head.next, self._head
+            current, previous = self._head, self._head
             while current.next is not None:
                 previous = current
                 current = current.next
@@ -59,6 +58,8 @@ class SinglyLinkedList:
             previous.next = None
             self._tail = previous
         self._length -= 1
+        if self.is_empty:
+            self._tail = None
         return data
 
     def shift(self, shift_by: int = 1):
@@ -91,7 +92,6 @@ class SinglyLinkedList:
             temp_index, previous, current = 0, self._head, self._head
             while temp_index < len(self):
                 if current.data == element:
-                    previous.next = current.next
                     break
                 previous = current
                 current = current.next
@@ -103,6 +103,23 @@ class SinglyLinkedList:
             elif temp_index == len(self):
                 raise ValueError(
                     "Element %s does not exists in the list" % element)
+            else:
+                previous.next = current.next
+                self._length -= 1
+
+    def reverse(self):
+        if len(self) == 0 or len(self) == 1:
+            return self
+        else:
+            node = self._head
+            self._head, self._tail = self._tail, self._head
+            next_node, previous_node = None, None
+            for i in range(len(self)):
+                next_node = node.next
+                node.next = previous_node
+                previous_node = node
+                node = next_node
+            return self
 
     def __len__(self):
         return self._length
@@ -140,27 +157,3 @@ class SinglyLinkedList:
 
     def __str__(self):
         return "[" + ", ".join([str(_) for _ in self]) + "]"
-
-
-# Allowed Operations
-if __name__ == "__main__":
-    l = SinglyLinkedList()
-    for i in range(1, 11):
-        l.append(i*10)
-    l.shift(shift_by=4)
-    l.shift()
-    l[2] = 10
-    l[-1] = (10, 20)
-    l.remove(70)
-    print(l)
-    print(l.head, l.tail)
-    l.unshift(10)
-    print(l[0])
-    l.unshift(20)
-    l.pop()
-    l.remove(20)
-    l.remove(10)
-    l.remove(60)
-    l.remove(90)
-    l.remove(10)
-    print(l)
