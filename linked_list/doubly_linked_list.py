@@ -21,9 +21,15 @@ class DoublyLinkedList(SinglyLinkedList):
         super().__init__(*args, **kwargs)
 
     def append(self, element):
-        tail = self._tail
-        super().append(element)
-        self._tail.previous = tail
+        node = self.__Node(element)
+        if self.is_empty:
+            self._head = node
+            self._tail = self._head
+        else:
+            node.previous = self._tail
+            self._tail.next = node
+            self._tail = self.tail.next
+        self._length += 1
 
     def pop(self):
         data = self._tail
@@ -41,21 +47,16 @@ class DoublyLinkedList(SinglyLinkedList):
         return data
 
     def shift(self, shift_by=1):
-        super().shift(shift_by=shift_by)
-        if not self.is_empty:
-            self._head.previous = None
+        pass
 
-    def unshift(self, element):        
-        super().unshift(element)
-        if len(self) > 1:
-            self._head.next.previous = self._head
-        
+    def unshift(self, element):
+        pass
 
     def remove(self, element):
-        pass # TODO: Implement remove
+        pass
 
     def reverse(self):
-        pass # TODO: Implement reverse
+        pass
 
 
 if __name__ == "__main__":
@@ -64,9 +65,5 @@ if __name__ == "__main__":
         l.append(i)
     for i in l:
         print(i)
-    l.shift(10)
-    l.unshift(100)
-    print(l.head, l.tail)
     l[-1] = 90
     print(l.head, l.tail, len(l))
-    print(l)
