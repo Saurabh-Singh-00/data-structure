@@ -24,6 +24,7 @@ The concept of Data Structures can be implemented using any Programming language
 ### Linked List
 
 1. [Singly Linked List](https://github.com/Saurabh-Singh-00/data-structure/blob/master/linked_list/singly_linked_list.py)
+2. [Doubly Linked List](https://github.com/Saurabh-Singh-00/data-structure/blob/master/linked_list/doubly_linked_list.py)
 
 ### Trees
 
