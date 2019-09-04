@@ -15,11 +15,11 @@ The concept of Data Structures can be implemented using any Programming language
 
 ### Sorting
 
-1. Bubble Sort
-2. Insertion Sort
-3. Selection Sort
-4. Merge Sort
-5. Quick Sort
+1. [Bubble Sort](https://github.com/Saurabh-Singh-00/data-structure/blob/master/sorting/bubble_sort.py)
+2. [Insertion Sort](https://github.com/Saurabh-Singh-00/data-structure/blob/master/sorting/insertion_sort.py)
+3. [Selection Sort](https://github.com/Saurabh-Singh-00/data-structure/blob/master/sorting/selection_sort.py)
+4. [Merge Sort](https://github.com/Saurabh-Singh-00/data-structure/blob/master/sorting/merge_sort.py)
+5. [Quick Sort](https://github.com/Saurabh-Singh-00/data-structure/blob/master/sorting/quick_sort.py)
 
 ### Linked List
 
