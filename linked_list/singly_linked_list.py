@@ -91,7 +91,7 @@ class SinglyLinkedList:
         else:
             temp_index, previous, current = 0, self._head, self._head
             while temp_index < len(self):
-                if current.data == element:
+                if current.data == element:                    
                     break
                 previous = current
                 current = current.next
@@ -105,6 +105,7 @@ class SinglyLinkedList:
                     "Element %s does not exists in the list" % element)
             else:
                 previous.next = current.next
+                current.next = None
                 self._length -= 1
 
     def reverse(self):
@@ -130,7 +131,7 @@ class SinglyLinkedList:
             yield temp
             temp = temp.next
 
-    def __bounded_index(self, index):
+    def _bounded_index(self, index):
         if index < 0:
             index = self._length + index
         if index > self._length - 1 or index < 0:
@@ -138,7 +139,7 @@ class SinglyLinkedList:
         return index
 
     def __getitem__(self, index):
-        index = self.__bounded_index(index)
+        index = self._bounded_index(index)
         temp_index, temp = 0, self._head
         while temp_index != index:
             temp = temp.next
@@ -148,7 +149,7 @@ class SinglyLinkedList:
     def __setitem__(self, index, element):
         if self.is_empty:
             raise IndexError("List index out of range")
-        index = self.__bounded_index(index)
+        index = self._bounded_index(index)
         temp_index, current = 0, self._head
         while temp_index != index:
             current = current.next
