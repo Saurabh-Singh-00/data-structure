@@ -29,9 +29,3 @@ class Stack:
 
     def __str__(self):
         return "[" + ", ".join([str(_) for _ in self]) + "]"
-
-
-stack = Stack()
-stack.push(100)
-print(stack.pop())
-print(stack)

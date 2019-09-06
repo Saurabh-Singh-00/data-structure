@@ -26,8 +26,7 @@ def merge_sort(array):
         return array
     mid = len(array)//2
     left_array = merge_sort(array[0:mid])
-    right_array = merge_sort(array[mid:len(array)])
-    print(left_array, right_array)
+    right_array = merge_sort(array[mid:len(array)])    
     return merge(left_array, right_array)
 
 
