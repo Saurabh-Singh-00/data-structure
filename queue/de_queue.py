@@ -8,7 +8,9 @@ except ImportError:
     from linked_list.singly_linked_list import SinglyLinkedList
 
 
-class Queue:
+class DEQueue:
+    ''' Double Ended Queue '''
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.__l = SinglyLinkedList()
@@ -27,18 +29,36 @@ class Queue:
     def rear(self):
         return self.__rear
 
-    def enqueue(self, element):
+    def f_enqueue(self, element):
+        ''' Enqueue from front '''
+        if self.__front == -1:
+            raise Exception("Cannot insert from front try r_enqueue() instead")
+        else:
+            self.__l.unshift(element)
+            self.__front -= 1
+
+    def r_enqueue(self, element):
+        ''' Enqueue from rear '''
         self.__l.append(element)
         self.__rear += 1
 
-    def dequeue(self):
+    def f_dequeue(self):
+        ''' Dequeue from front '''
+        if self.is_empty:
+            return None
         self.__front += 1
         if self.is_empty:
             self.__front, self.__rear = -1, -1
         return self.__l.shift()
 
-    def peek(self):
-        return self.__l.head
+    def r_dequeue(self):
+        ''' Dequeue from rear '''
+        if self.is_empty:
+            return None
+        self.__rear -= 1
+        if self.is_empty:
+            self.__front, self.__rear = -1, -1
+        return self.__l.pop()
 
     def __iter__(self):
         for i in self.__l:
