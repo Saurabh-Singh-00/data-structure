@@ -54,8 +54,8 @@ class DoublyLinkedList(SinglyLinkedList):
         else:
             while shift_by:
                 temp = self._head
-                self._head.previous = None
                 self._head = temp.next
+                self._head.previous = None
                 temp.next = None
                 self._length -= 1
                 shift_by -= 1

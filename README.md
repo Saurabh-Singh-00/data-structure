@@ -11,19 +11,28 @@ The concept of Data Structures can be implemented using any Programming language
 
 ### Searching
 
-1. Binary Search
+1. [Binary Search](https://github.com/Saurabh-Singh-00/data-structure/blob/master/searching/binary_search.py)
 
 ### Sorting
 
-1. Bubble Sort
-2. Insertion Sort
-3. Selection Sort
-4. Merge Sort
-5. Quick Sort
+1. [Bubble Sort](https://github.com/Saurabh-Singh-00/data-structure/blob/master/sorting/bubble_sort.py)
+2. [Insertion Sort](https://github.com/Saurabh-Singh-00/data-structure/blob/master/sorting/insertion_sort.py)
+3. [Selection Sort](https://github.com/Saurabh-Singh-00/data-structure/blob/master/sorting/selection_sort.py)
+4. [Merge Sort](https://github.com/Saurabh-Singh-00/data-structure/blob/master/sorting/merge_sort.py)
+5. [Quick Sort](https://github.com/Saurabh-Singh-00/data-structure/blob/master/sorting/quick_sort.py)
+
+### Stack
+
+1. [Stack](https://github.com/Saurabh-Singh-00/data-structure/blob/master/stack/stack.py)
+
+### Queue
+
+1. [Queue](https://github.com/Saurabh-Singh-00/data-structure/blob/master/queue/queue.py)
 
 ### Linked List
 
 1. [Singly Linked List](https://github.com/Saurabh-Singh-00/data-structure/blob/master/linked_list/singly_linked_list.py)
+2. [Doubly Linked List](https://github.com/Saurabh-Singh-00/data-structure/blob/master/linked_list/doubly_linked_list.py)
 
 ### Trees
 

@@ -68,12 +68,16 @@ class SinglyLinkedList:
         elif len(self) < shift_by:
             raise IndexError("Shifting index out of range")
         else:
+            temp = None
             while shift_by:
+                temp = self._head
                 self._head = self._head.next
                 self._length -= 1
                 shift_by -= 1
             if len(self) == 0:
                 self._tail = None
+            temp.next = None
+            return temp
 
     def unshift(self, element):
         if self.is_empty:
@@ -91,7 +95,7 @@ class SinglyLinkedList:
         else:
             temp_index, previous, current = 0, self._head, self._head
             while temp_index < len(self):
-                if current.data == element:                    
+                if current.data == element:
                     break
                 previous = current
                 current = current.next
@@ -154,7 +158,7 @@ class SinglyLinkedList:
         while temp_index != index:
             current = current.next
             temp_index += 1
-        current.set_data(element)
+        current.data = element
 
     def __str__(self):
         return "[" + ", ".join([str(_) for _ in self]) + "]"
