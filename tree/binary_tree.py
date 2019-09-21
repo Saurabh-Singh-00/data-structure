@@ -15,27 +15,28 @@ class BinaryTree:
 
         @property
         def has_one_child(self):
-            return self.l_child is not None or self.r_child is not None
+            return (self.l_child is not None and self.r_child is None) or (self.l_child is None and self.r_child is not None)
 
         @property
         def is_intermediate(self):
-            return self.l_child is not None and self.r_child is not None
+            return self.l_child != None and self.r_child != None
 
-        def __str__(self):            
+        def __str__(self):
             if BinaryTree.PRE_ORDER:
-                return "{{\nNode: {{\n\tdata: {}, \n\tleft: {}, \n\tright: {}\n}}\n}}".format( self.data, self.l_child, self.r_child)
+                return "{{\nNode: {{\n\tdata: {}, \n\tleft: {}, \n\tright: {}\n}}\n}}".format(self.data, self.l_child, self.r_child)
             elif BinaryTree.IN_ORDER:
-                return "{{\nNode:{{\n\tleft: {},\n\tdata: {},\n\tright: {}\n}}\n}}".format( self.l_child, self.data, self.r_child)
+                return "{{\nNode:{{\n\tleft: {},\n\tdata: {},\n\tright: {}\n}}\n}}".format(self.l_child, self.data, self.r_child)
             elif BinaryTree.POST_ORDER:
-                return "{{Node: {{left: {}, right: {}, data: {} }}}}".format( self.l_child, self.r_child, self.data)
+                return "{{\nNode: {{\n\tleft: {}, \n\tright: {}, \n\tdata: {}\n }}\n}}".format(self.l_child, self.r_child, self.data)
 
     def __init__(self):
         self.root = None
         self._height = 0
 
-    @property
-    def height(self):
-        return self._height
+    def height(self, root):
+        if root is None:
+            return -1
+        return max(self.height(root.l_child), self.height(root.r_child))+1
 
     def insert(self, data):
         if self.root is None:
@@ -81,34 +82,33 @@ class BinaryTree:
             raise Exception("Value {} does not exists".format(value))
         return current, parent
 
+    def __min_value_node(self, node: Node) -> Node:
+        if node.l_child is None:
+            return node
+        return self.__min_value_node(node.l_child)
+
     def delete(self, value):
-        try:
-            current, parent = self.search(value)
-            # case 1: Delete leaf node
-            if current.is_leaf:
-                if current is parent.l_child:
-                    parent.l_child = None
-                else:
-                    parent.r_child = None
-                del current
-            # case 2: Delete a node with one child
-            elif current.has_one_child:
-                pass
-            # case 3: Delete a node with two children
-            elif current.is_intermediate:
-                pass
-        except Exception as e:
-            raise e
-
-
-b = BinaryTree()
-b.insert(10)
-b.insert(20)
-b.insert(30)
-b.insert(15)
-b.insert(5)
-b.insert(25)
-b.insert(2)
-b.traverse(mode=BinaryTree.PRE_ORDER)
-b.delete(value=5)
-b.traverse(mode=BinaryTree.IN_ORDER)
+        current, parent = self.search(value)
+        if current.is_leaf:
+            if current is parent.l_child:
+                parent.l_child = None
+            elif current is parent.r_child:
+                parent.r_child = None
+            else:
+                self.root = None
+        elif current.has_one_child:
+            if current is parent.l_child:
+                parent.l_child = current.l_child if current.l_child is not None else current.r_child
+            elif current is parent.r_child:
+                parent.r_child = current.l_child if current.l_child is not None else current.r_child
+            elif current is parent:
+                self.root = current.l_child if current.l_child is not None else current.r_child
+        elif current.is_intermediate:
+            min_node, min_parent = self.search(
+                self.__min_value_node(current.r_child).data)
+            current.data = min_node.data
+            if min_node is min_parent.l_child:
+                min_parent.l_child = None if min_node.is_leaf else min_node.r_child
+            elif min_node is min_parent.r_child:
+                min_parent.r_child = min_node.r_child
+            del min_node
