@@ -27,7 +27,8 @@ The concept of Data Structures can be implemented using any Programming language
 
 ### Queue
 
-1. [Queue](https://github.com/Saurabh-Singh-00/data-structure/blob/master/queue/queue.py)
+1. [Queue](https://github.com/Saurabh-Singh-00/data-structure/blob/master/tqueue/queue.py)
+2. [DeQueue](https://github.com/Saurabh-Singh-00/data-structure/blob/master/tqueue/de_queue.py)
 
 ### Linked List
 
@@ -38,5 +39,8 @@ The concept of Data Structures can be implemented using any Programming language
 
 1. [Binary Tree](https://github.com/Saurabh-Singh-00/data-structure/blob/master/tree/binary_tree.py)
 
+### Tree Traversal
+
+1. [Breadth First Search](https://github.com/Saurabh-Singh-00/data-structure/blob/master/tree/tree_traverse.py)
 
 ##### Please give a star to the repo if it helped you in any manner. [Visit the data-structure for python repo](https://github.com/Saurabh-Singh-00/data-structure)
