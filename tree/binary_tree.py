@@ -1,7 +1,5 @@
 class BinaryTree:
 
-    IN_ORDER, PRE_ORDER, POST_ORDER = 0, 1, 2
-
     class Node:
 
         def __init__(self, data):
@@ -22,12 +20,7 @@ class BinaryTree:
             return self.l_child != None and self.r_child != None
 
         def __str__(self):
-            if BinaryTree.PRE_ORDER:
-                return "{{\nNode: {{\n\tdata: {}, \n\tleft: {}, \n\tright: {}\n}}\n}}".format(self.data, self.l_child, self.r_child)
-            elif BinaryTree.IN_ORDER:
-                return "{{\nNode:{{\n\tleft: {},\n\tdata: {},\n\tright: {}\n}}\n}}".format(self.l_child, self.data, self.r_child)
-            elif BinaryTree.POST_ORDER:
-                return "{{\nNode: {{\n\tleft: {}, \n\tright: {}, \n\tdata: {}\n }}\n}}".format(self.l_child, self.r_child, self.data)
+            return str(self.data)
 
     def __init__(self):
         self.root = None
@@ -54,18 +47,6 @@ class BinaryTree:
                 _root.l_child = self.Node(data)
             else:
                 _root.r_child = self.Node(data)
-
-    def traverse(self, mode):
-        if mode == BinaryTree.IN_ORDER:
-            print("In Order traversal: Left->Data->Right")
-            BinaryTree.IN_ORDER, BinaryTree.PRE_ORDER, BinaryTree.POST_ORDER = True, False, False
-        elif mode == BinaryTree.PRE_ORDER:
-            print("Pre Order traversal: Data->Left->Right")
-            BinaryTree.IN_ORDER, BinaryTree.PRE_ORDER, BinaryTree.POST_ORDER = False, True, False
-        elif mode == BinaryTree.POST_ORDER:
-            print("Post Order traversal: Left->Right->Data")
-            BinaryTree.IN_ORDER, BinaryTree.PRE_ORDER, BinaryTree.POST_ORDER = False, False, True
-        print(self.root)
 
     def search(self, value):
         if self.root is None:
