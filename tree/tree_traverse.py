@@ -9,33 +9,71 @@ except ImportError:
     from linked_list.singly_linked_list import SinglyLinkedList
     from tqueue.queue import Queue
     from tree.binary_tree import BinaryTree
+    from stack.stack import Stack
 
 
 class TreeTraverse:
 
-    queue = Queue()
-    visited = SinglyLinkedList()
+    IN_ORDER: int = 0
+    PRE_ORDER: int = 1
+    POST_ORDER: int = 2
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-    @classmethod
-    def breadth_first_search(cls, node):
-        ''' Use it as \n
-        binary_tree = BinaryTree()\n
-        TreeTraverse.breadth_first_search(binary_tree.root) \n
-        '''
+    def breadth_first_search(self, node):
         if node is None:
             return
-        cls.queue.enqueue(node)
-        while not cls.queue.is_empty:
-            node = cls.queue.dequeue().data
-            cls.visited.append(node.data)
+        queue = Queue()
+        visited = SinglyLinkedList()
+        queue.enqueue(node)
+        while not queue.is_empty:
+            node = queue.dequeue().data
+            visited.append(node.data)
             if node.l_child:
-                cls.queue.enqueue(node.l_child)
+                queue.enqueue(node.l_child)
             if node.r_child:
-                cls.queue.enqueue(node.r_child)
-        return cls.visited
+                queue.enqueue(node.r_child)
+        return visited
+
+    def __pre_order(self, node: BinaryTree.Node, path: list):
+        if node is None:
+            return
+        path.append(node.data)
+        if node.l_child:
+            self.__pre_order(node.l_child, path)
+        if node.r_child:
+            self.__pre_order(node.r_child, path)
+        return path
+
+    def __in_order(self, node: BinaryTree.Node, path: list):
+        if node is None:
+            return
+        if node.l_child:
+            self.__in_order(node.l_child, path)
+        path.append(node.data)
+        if node.r_child:
+            self.__in_order(node.r_child, path)
+        return path
+
+    def __post_order(self, node: BinaryTree.Node, path: list):
+        if node is None:
+            return
+        if node.l_child:
+            self.__post_order(node.l_child, path)
+        if node.r_child:
+            self.__post_order(node.r_child, path)
+        path.append(node.data)
+        return path
+
+    def depth_first_search(self, node, mode):
+        traversed = []
+        if node is None:
+            return
+        if mode is TreeTraverse.PRE_ORDER:
+            self.__pre_order(node, traversed)
+        elif mode is TreeTraverse.IN_ORDER:
+            self.__in_order(node, traversed)
+        elif mode is TreeTraverse.POST_ORDER:
+            self.__post_order(node, traversed)
+        return traversed
 
 
 b = BinaryTree()
@@ -45,4 +83,8 @@ b.insert(15)
 b.insert(3)
 b.insert(8)
 b.insert(20)
-print(TreeTraverse.breadth_first_search(b.root))
+traverse = TreeTraverse()
+print(traverse.breadth_first_search(b.root))
+print(traverse.depth_first_search(b.root, TreeTraverse.PRE_ORDER))
+print(traverse.depth_first_search(b.root, TreeTraverse.IN_ORDER))
+print(traverse.depth_first_search(b.root, TreeTraverse.POST_ORDER))

@@ -23,6 +23,12 @@ class Stack:
         self.top -= 1
         return self.__l.pop()
 
+    @property
+    def top_item(self):
+        if self.top == -1:
+            return
+        return self.__l.tail
+
     def __iter__(self):
         for i in self.__l:
             yield i
