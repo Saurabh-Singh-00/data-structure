@@ -1,5 +1,7 @@
 ## Data Structures using Python
 
+[![Data Structure](https://github.com/Saurabh-Singh-00/data-structure/blob/master/cover_img.jpg "Data Structure")](https://github.com/Saurabh-Singh-00/data-structure/blob/master/cover_img.jpg "Data Structure")
+###### I highly recommend you all to watch this course for learning data-structures from scratch [Course Attribution](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/ "Course Attribution")
 The concept of Data Structures can be implemented using any Programming language but I chose Python. Topics that are covered are
 - [Searching 🔍](https://github.com/Saurabh-Singh-00/data-structure/tree/master/searching "Searching")
 - [Sorting 〽️](https://github.com/Saurabh-Singh-00/data-structure/tree/master/sorting "Sorting")
@@ -7,6 +9,7 @@ The concept of Data Structures can be implemented using any Programming language
 - [Queue 🧑🏻‍🤝‍🧑🏻](https://github.com/Saurabh-Singh-00/data-structure/tree/master/tqueue "Queue")
 - [Linked List 🤼](https://github.com/Saurabh-Singh-00/data-structure/tree/master/linked_list "Linked List")
 - [Tree 🌳](https://github.com/Saurabh-Singh-00/data-structure/tree/master/tree "Tree")
+- [Heap ☲](https://github.com/Saurabh-Singh-00/data-structure/tree/master/heap "Heap")
 - Graphs 🗺️
 
 ### Searching
@@ -46,5 +49,8 @@ The concept of Data Structures can be implemented using any Programming language
 	- [Pre Order DFS](https://github.com/Saurabh-Singh-00/data-structure/blob/master/tree/tree_traverse.py#L36)
 	- [In Order DFS](https://github.com/Saurabh-Singh-00/data-structure/blob/master/tree/tree_traverse.py#L46)
 	- [Post Order DFS](https://github.com/Saurabh-Singh-00/data-structure/blob/master/tree/tree_traverse.py#L56)
+
+### Heap
+1. [Heap](https://github.com/Saurabh-Singh-00/data-structure/blob/master/heap/heap.py "Heap")
 
 ##### Please give a star to the repo if it helped you in any manner. [Visit the data-structure for python repo](https://github.com/Saurabh-Singh-00/data-structure)
