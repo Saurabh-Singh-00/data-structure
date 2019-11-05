@@ -1,6 +1,6 @@
 ## Data Structures using Python
 
-The concept of Data Structures can be implemented using any Programming language but I choosed Python. Topics that are covered are
+The concept of Data Structures can be implemented using any Programming language but I chose Python. Topics that are covered are
 - [Searching 🔍](https://github.com/Saurabh-Singh-00/data-structure/tree/master/searching "Searching")
 - [Sorting 〽️](https://github.com/Saurabh-Singh-00/data-structure/tree/master/sorting "Sorting")
 - [Stack 📚](https://github.com/Saurabh-Singh-00/data-structure/tree/master/stack "Stack")

@@ -33,7 +33,7 @@ class TreeTraverse:
                 queue.enqueue(node.r_child)
         return visited
 
-    def __pre_order(self, node: BinaryTree.Node, path: list):
+    def __pre_order(self, node: BinaryTree.Node, path: SinglyLinkedList):
         if node is None:
             return
         path.append(node.data)
@@ -43,7 +43,7 @@ class TreeTraverse:
             self.__pre_order(node.r_child, path)
         return path
 
-    def __in_order(self, node: BinaryTree.Node, path: list):
+    def __in_order(self, node: BinaryTree.Node, path: SinglyLinkedList):
         if node is None:
             return
         if node.l_child:
@@ -53,7 +53,7 @@ class TreeTraverse:
             self.__in_order(node.r_child, path)
         return path
 
-    def __post_order(self, node: BinaryTree.Node, path: list):
+    def __post_order(self, node: BinaryTree.Node, path: SinglyLinkedList):
         if node is None:
             return
         if node.l_child:
@@ -64,7 +64,7 @@ class TreeTraverse:
         return path
 
     def depth_first_search(self, node, mode):
-        traversed = []
+        traversed = SinglyLinkedList()
         if node is None:
             return
         if mode is TreeTraverse.PRE_ORDER:
