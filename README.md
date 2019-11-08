@@ -1,6 +1,7 @@
 ## Data Structures using Python
 
-[![Data Structure](https://github.com/Saurabh-Singh-00/data-structure/blob/master/cover_img.jpg "Data Structure")](https://github.com/Saurabh-Singh-00/data-structure/blob/master/cover_img.jpg "Data Structure")
+[![Data Structure](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=891&q=80 "Data Structure")]( https://unsplash.com/photos/M5tzZtFCOfs "Data Structure")
+
 ###### I highly recommend you all to watch this course for learning data-structures from scratch [Course Attribution](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/ "Course Attribution")
 The concept of Data Structures can be implemented using any Programming language but I chose Python. Topics that are covered are
 - [Searching 🔍](https://github.com/Saurabh-Singh-00/data-structure/tree/master/searching "Searching")
@@ -52,5 +53,8 @@ The concept of Data Structures can be implemented using any Programming language
 
 ### Heap
 1. [Heap](https://github.com/Saurabh-Singh-00/data-structure/blob/master/heap/heap.py "Heap")
+2. [Priority Queue](https://github.com/Saurabh-Singh-00/data-structure/blob/master/heap/heap.py#L66 "Priority Queue")
 
 ##### Please give a star to the repo if it helped you in any manner. [Visit the data-structure for python repo](https://github.com/Saurabh-Singh-00/data-structure)
+
+###### [Thanks Taylor Vick for the 📷 Image from Unsplash](https://unsplash.com/photos/M5tzZtFCOfs "Thanks Taylor Vick for the Image from Unsplash")
