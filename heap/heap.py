@@ -1,5 +1,5 @@
 try:
-    from linked_list.abstract_node import AbstractNode
+    from linked_list.singly_linked_list import SinglyLinkedList
 except ImportError:
     import sys
     import os.path
@@ -63,9 +63,50 @@ class MaxBinaryHeap:
         return str(self.values)
 
 
-heap = MaxBinaryHeap()
-heap.insert([39, 33, 18, 27, 12])
-heap.insert([55, 41])
-print(heap)
-print(heap.extract_max())
-print(heap)
+class PriorityQueue:
+    """\n
+    >>> p_queue = PriorityQueue()
+    >>> p_queue.enqueue([("Flu", 24), ("Attack", 88), ("Fever", 56), ("Headache", 14)])
+    >>> print(p_queue)
+    >>> [{Data: Attack, Priority: 88}, {Data: Flu, Priority: 24}, {Data: Fever, Priority: 56}, {Data: Headache, Priority: 14}]
+
+    Using a Hospital Metaphor: Suppose there are multiple cases in a Hospital 
+    and they want to operate the case with highest priority/serverity then 
+    priority queue can be used as illustrated above.\n
+    """
+    class Node:
+        def __init__(self, data, priority):
+            self.data = data
+            self.priority = priority
+
+        def __gt__(self, value):
+            return self.priority > value.priority
+
+        def __lt__(self, value):
+            return self.priority < value.priority
+
+        def __eq__(self, value):
+            return self.priority == value.priority
+
+        def __str__(self):
+            return "{{Data: {}, Priority: {}}}".format(self.data, self.priority)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.__heap = MaxBinaryHeap()
+
+    def enqueue(self, values: list):
+        self.__heap.insert(list(map(lambda n: self.Node(n[0], n[1]), values)))
+
+    def dequeue(self):
+        return self.__heap.extract_max()
+
+    def __str__(self):
+        return str(self.__heap)
+
+
+p_queue = PriorityQueue()
+p_queue.enqueue([("Flu", 24), ("Attack", 88), ("Fever", 56), ("Headache", 14)])
+print(p_queue)
+print(p_queue.dequeue())
+print(p_queue)
