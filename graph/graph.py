@@ -36,8 +36,9 @@ class Graph:
         del self.adjacency_list[vertex]
 
     def remove_edge(self, source, target):
-        if not self.is_directed and target in self.adjacency_list:
-            self.get_neighbors(target).discard(source)
+        self.get_neighbors(source).remove(target)
+        if not self.is_directed:
+            self.get_neighbors(target).remove(source)
 
     def get_neighbors(self, vertex):
         return self.adjacency_list[vertex]
