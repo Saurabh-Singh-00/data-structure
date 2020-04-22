@@ -11,7 +11,7 @@ The concept of Data Structures can be implemented using any Programming language
 - [Linked List 🤼](https://github.com/Saurabh-Singh-00/data-structure/tree/master/linked_list "Linked List")
 - [Tree 🌳](https://github.com/Saurabh-Singh-00/data-structure/tree/master/tree "Tree")
 - [Heap ☲](https://github.com/Saurabh-Singh-00/data-structure/tree/master/heap "Heap")
-- Graphs 🗺️
+- [Graphs 🗺️](https://github.com/Saurabh-Singh-00/data-structure/tree/master/graph "Graph")
 
 ### Searching
 
@@ -54,6 +54,9 @@ The concept of Data Structures can be implemented using any Programming language
 ### Heap
 1. [Heap](https://github.com/Saurabh-Singh-00/data-structure/blob/master/heap/heap.py "Heap")
 2. [Priority Queue](https://github.com/Saurabh-Singh-00/data-structure/blob/master/heap/heap.py#L66 "Priority Queue")
+
+### Graph
+1. [Graph](https://github.com/Saurabh-Singh-00/data-structure/tree/master/graph/graph.py "Graph")
 
 ##### Please give a star to the repo if it helped you in any manner. [Visit the data-structure for python repo](https://github.com/Saurabh-Singh-00/data-structure)
 
